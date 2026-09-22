@@ -1,0 +1,26 @@
+experiment_name: self_training_resnet18
+
+data:
+  source_dir: data/source
+  target_dir: data/target
+  batch_size: 32
+  num_workers: 0
+
+model:
+  num_classes: 6
+  # Il modello "insegnante" che genera le pseudo-label: usiamo CORAL,
+  # la tecnica migliore trovata finora (75.37% sul target).
+  teacher_checkpoint: experiments/checkpoints/coral_resnet18_best.pth
+
+training:
+  epochs: 8
+  lr: 0.00005          # basso: stiamo raffinando un modello gia' buono
+  weight_decay: 0.0001
+  optimizer: adam
+  seed: 42
+  confidence_threshold: 0.9   # soglia minima di confidenza per accettare una pseudo-label
+
+output:
+  checkpoint_dir: experiments/checkpoints
+  log_dir: experiments/logs
+  checkpoint_name: self_training_resnet18_best.pth

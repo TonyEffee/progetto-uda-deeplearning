@@ -1,0 +1,26 @@
+experiment_name: coral_resnet18
+
+data:
+  source_dir: data/source
+  target_dir: data/target
+  batch_size: 32
+  num_workers: 2   # su Colab il sistema suggerisce max 2 worker, evitiamo il warning
+
+model:
+  num_classes: 6
+  # Riusa i pesi gia' allenati sul source come punto di partenza (warm start).
+  # Se il file non esiste, lo script parte semplicemente da ImageNet puro.
+  warm_start_checkpoint: experiments/checkpoints/baseline_resnet18_best.pth
+
+training:
+  epochs: 15
+  lr: 0.0001          # piu' basso del baseline: partiamo gia' da un modello buono
+  weight_decay: 0.0001
+  optimizer: adam
+  seed: 42
+  coral_lambda: 1.0    # peso del termine di allineamento; da provare anche 0.5 / 2.0
+
+output:
+  checkpoint_dir: experiments/checkpoints
+  log_dir: experiments/logs
+  checkpoint_name: coral_resnet18_best.pth

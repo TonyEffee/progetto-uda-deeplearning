@@ -1,0 +1,17 @@
+perturbation_type,severity_level,description,accuracy
+blur,0,sigma=0.0,0.9273333333333333
+blur,1,sigma=1.0,0.8623333333333333
+blur,2,sigma=2.0,0.725
+blur,3,sigma=4.0,0.6413333333333333
+noise,0,std=0.0,0.9273333333333333
+noise,1,std=0.05,0.8753333333333333
+noise,2,std=0.1,0.6863333333333334
+noise,3,std=0.2,0.31733333333333336
+color_shift,0,"brightness=1.0, contrast=1.0, saturation=1.0",0.9273333333333333
+color_shift,1,"brightness=0.8, contrast=0.85, saturation=0.8",0.9253333333333333
+color_shift,2,"brightness=0.6, contrast=0.7, saturation=0.6",0.901
+color_shift,3,"brightness=0.4, contrast=0.55, saturation=0.4",0.823
+resolution,0,224x224 -> upscaled a 224,0.9273333333333333
+resolution,1,112x112 -> upscaled a 224,0.821
+resolution,2,56x56 -> upscaled a 224,0.6926666666666667
+resolution,3,28x28 -> upscaled a 224,0.41433333333333333

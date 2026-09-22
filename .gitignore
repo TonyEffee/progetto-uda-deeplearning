@@ -1,16 +1,25 @@
 resources/
 
+# Ambienti virtuali e cache Python
 .venv/
 env/
 __pycache__/
 *.pyc
 
-data/
-experiments/logs/
-experiments/checkpoints/
+# Dataset: il source si scarica da Kaggle, il target contiene foto personali
+data/*
+!data/README.md
 
+# Checkpoint dei modelli (circa 45 MB ciascuno, disponibili su Google Drive)
+experiments/checkpoints/*
+!experiments/checkpoints/README.md
+
+# Notebook e file temporanei
 .ipynb_checkpoints/
-
 *.log
+*.zip
 
+# File di sistema
 .DS_Store
+Thumbs.db
+desktop.ini

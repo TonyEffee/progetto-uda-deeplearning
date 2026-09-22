@@ -1,0 +1,26 @@
+experiment_name: dann_resnet18
+
+data:
+  source_dir: data/source
+  target_dir: data/target
+  batch_size: 32
+  num_workers: 0   # stesso fix scoperto per CORAL (immagini target gia' leggere, ma teniamo 0 per sicurezza su Colab)
+
+model:
+  num_classes: 6
+  discriminator_hidden_dim: 256
+  # Warm start dal baseline "puro" (NON dal checkpoint CORAL!), per un
+  # confronto equo tra le due tecniche UDA a parita' di punto di partenza.
+  warm_start_checkpoint: experiments/checkpoints/baseline_resnet18_best.pth
+
+training:
+  epochs: 15
+  lr: 0.0001
+  weight_decay: 0.0001
+  optimizer: adam
+  seed: 42
+
+output:
+  checkpoint_dir: experiments/checkpoints
+  log_dir: experiments/logs
+  checkpoint_name: dann_resnet18_best.pth

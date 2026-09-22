@@ -1,0 +1,28 @@
+experiment_name: dann_stable_resnet18
+
+data:
+  source_dir: data/source
+  target_dir: data/target
+  batch_size: 32
+  num_workers: 0
+
+model:
+  num_classes: 6
+  discriminator_hidden_dim: 256
+  warm_start_checkpoint: experiments/checkpoints/baseline_resnet18_best.pth
+
+training:
+  epochs: 15
+  lr: 0.0001
+  weight_decay: 0.0001
+  optimizer: adam
+  seed: 42
+  # --- Iperparametri di stabilizzazione della GRL ---
+  gamma: 5.0              # crescita di lambda piu' lenta (default originale: 10.0)
+  max_lambda: 0.3         # pressione adversariale massima ridotta (default originale: 1.0)
+  domain_loss_weight: 0.5 # peso della domain_loss nella loss totale (default originale: 1.0)
+
+output:
+  checkpoint_dir: experiments/checkpoints
+  log_dir: experiments/logs
+  checkpoint_name: dann_stable_resnet18_best.pth
