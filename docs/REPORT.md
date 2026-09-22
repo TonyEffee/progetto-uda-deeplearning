@@ -191,10 +191,10 @@ Due esperimenti indipendenti convergono quindi sulla stessa conclusione: il test
 
 Negli esempi di errore più frequenti, per tutti i modelli, compaiono soprattutto immagini _buildings_ classificate come _street_: si tratta per lo più di scorci di vicoli in cui facciate e strada occupano porzioni simili dell'inquadratura. Dopo l'adattamento compaiono anche predizioni _glacier_ su immagini _buildings_, una classe che non esiste nel target: un segnale di come l'allineamento sposti le feature in regioni dello spazio che la baseline non usava.
 
-![buildings predetto come street](D:\Universita\progetto-uda-deeplearning\figures\failure_cases/13095.jpg)
+![buildings predetto come street](../figures/failure_cases/13095.JPEG)
 _Vero: buildings — Predetto: street. [In quest'immagine possiamo vedere benissimo che metà è occupata da un palazzo e metà da una strada dunque vi è ambiguità nella classificazione]_
 
-![buildings predetto come street](D:\Universita\progetto-uda-deeplearning\figures\failure_cases/12813.jpg)
+![buildings predetto come street](../figures/failure_cases/12813.JPG)
 _Vero: buildings — Predetto: street. [Anche in questo caso possiamo notare una buona parte dell'immagine occupata dalla strada]_
 
 ![Confusion matrix baseline](../figures/confusion_matrix_target_baseline.png)
