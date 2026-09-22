@@ -31,7 +31,7 @@ Il progetto studia il domain shift nel riconoscimento di scene. Un classificator
 ### 1. Ambiente
 
 ```bash
-git clone [URL del repository]
+git clone https://github.com/TonyEffee/progetto-uda-deeplearning.git
 cd progetto-uda-deeplearning
 conda env create -f environment.yml
 conda activate dl-project
